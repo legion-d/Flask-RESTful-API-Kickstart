@@ -26,8 +26,8 @@ class LinkModel(db.Model):
         return cls.query.filter_by(url=url).first()
 
     @classmethod
-    def find_by_uuid(cls, uuid):
-        return cls.query.filter_by(uuid=uuid).first()
+    def find_by_uuid(cls, _uuid):
+        return cls.query.filter_by(uuid=_uuid).first()
 
     def save_to_db(self):
         db.session.add(self)
