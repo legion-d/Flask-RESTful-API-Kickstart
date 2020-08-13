@@ -10,6 +10,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 api = Api(app)
 
+db.init_app(app)
+
 
 @app.before_first_request
 def create_tables():
@@ -23,6 +25,6 @@ api.add_resource(Link, '/link/<string:uuid>')
 # TODO - Add support to get link by url
 # api.add_resource(Link, '/link/<string:url>')
 api.add_resource(LinkList, '/links')
-if __name__ == "__main__":
-    db.init_app(app)
+
+if __name__ == '__main__':
     app.run(port=5000, debug=True)
