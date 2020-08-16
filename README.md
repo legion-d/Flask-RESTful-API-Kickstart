@@ -7,14 +7,13 @@ Project template is based on Flask web framework with Flask-RESTful plugin, Flas
 
 You can install by source code.
 
-Use `virtualenv` (pip install virtualenv):
-
     > git fork ...
+    > git clone ...
     > cd ...
-    > virtualenv --no-site-packages venv
+    > virtualenv --python=python3 --no-site-packages venv
     > source venv/bin/activate
-    > python setup.py install
-    > python setup.py test
+    > pip3 install -r requirements.txt
+    > python3 app.py
 
 ## Usage
 
