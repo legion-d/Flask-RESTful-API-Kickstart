@@ -1,11 +1,18 @@
+import logging.config
+
+import yaml
 from flask import Flask
 from flask_restful import Api
 
 from db import db
-from resources.link import Link, LinkList
+from resources.item import Item, ItemList
+
+with open('logging_config.yml') as lc:
+    logging_config = yaml.load(lc, Loader=yaml.FullLoader)
+    logging.config.dictConfig(logging_config)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///link.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///item.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 api = Api(app)
@@ -18,13 +25,9 @@ def create_tables():
     db.create_all()
 
 
-# TODO - How to ignore an id in url - get >> post() got an unexpected keyword argument 'id'
-api.add_resource(Link, '/link/', endpoint='post')
-api.add_resource(Link, '/link/<string:uuid>')
-
-# TODO - Add support to get link by url
-# api.add_resource(Link, '/link/<string:url>')
-api.add_resource(LinkList, '/links')
+api.add_resource(Item, '/item', endpoint='post')
+api.add_resource(Item, '/item/<string:uuid>')
+api.add_resource(ItemList, '/items')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
