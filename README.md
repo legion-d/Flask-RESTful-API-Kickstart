@@ -31,51 +31,39 @@ You can install by source code.
 ### select all
 
     > curl -d http://127.0.0.1:5000/items
-    "items": [
-        {
-            "id": 1,
-            "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
-            "name": "chair",
-            "created": "2020-08-15 05:08:41.097580",
-            "updated": "2020-08-16 03:26:21.109505"
-        }
-    ]
-}
+    {   "items": [
+                    {
+                        "id": 1,
+                        "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
+                        "name": "chair",
+                        "created": "2020-08-15 05:08:41.097580",
+                        "updated": "None"
+                    }
+                 ]
+     }
+
 
 ### select
 
     > curl http://127.0.0.1:5000/item/e5dfe582-a8b0-4154-bc39-7682bf5e0328
     {
-    "id": 2,
-    "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
-    "name": "http://log?.co.il",
-    "created": "2020-08-15 05:08:41.097580",
-    "updated": "2020-08-16 03:26:21.109505"
+        "id": 1,
+        "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
+        "name": "chair",
+        "created": "2020-08-15 05:08:41.097580",
+        "updated": "None"
      }
 
-### select all
-
-    > curl -d http://127.0.0.1:5000/items
-    "items": [
-        {
-            "id": 1,
-            "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
-            "name": "chair",
-            "created": "2020-08-15 05:08:41.097580",
-            "updated": "2020-08-16 03:26:21.109505"
-        }
-            ]
-    }
 ### update
 
     > curl -d "name=table" -X PUT http://127.0.0.1:5000/item/e5dfe582-a8b0-4154-bc39-7682bf5e0328
 
     {
-    "id": 2,
-    "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
-    "name": "table",
-    "created": "2020-08-16 03:12:49.085620",
-    "updated": "2020-08-16 05:02:53.773666"
+        "id": 1,
+        "uuid": "e5dfe582-a8b0-4154-bc39-7682bf5e0328",
+        "name": "table",
+        "created": "2020-08-16 03:12:49.085620",
+        "updated": "2020-08-16 05:02:53.773666"
      }
 
 
@@ -83,7 +71,7 @@ You can install by source code.
 
     > curl -X DELETE http://127.0.0.1:5000/item/e5dfe582-a8b0-4154-bc39-7682bf5e0328
     {
-        "message": "item deleted >> {'id': 2, 'uuid': 'e5dfe582-a8b0-4154-bc39-7682bf5e0328', 'name': 'table', 'created': '2020-08-16 03:12:49.085620', 'updated': '2020-08-16 05:02:53.773666'}"
+        "message": "item deleted >> {'id': 1, 'uuid': 'e5dfe582-a8b0-4154-bc39-7682bf5e0328', 'name': 'table', 'created': '2020-08-16 03:12:49.085620', 'updated': '2020-08-16 05:02:53.773666'}"
     }
 
 
